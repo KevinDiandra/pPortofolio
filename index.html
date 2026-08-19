@@ -1,0 +1,454 @@
+cat << 'EOF' > /var/www/portfolio/index.html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Web Modern & Responsif - Full Stack Developer">
+    <title>Portofolio | Kevin D Firdaus</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            bg: '#0B0F19',
+                            card: '#111827',
+                            border: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Ambient Glow Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-violet-600/15 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-[#0B0F19]/80 border-b border-slate-800/80" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+                        K
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+                        kevf.<span class="text-indigo-500">.dev</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#hero" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Beranda</a>
+                    <a href="#skills" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Proyek</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#contact" class="px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all duration-300 shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5">
+                        Hubungi Saya
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 focus:outline-none" aria-label="Buka Menu">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-[#0B0F19]/95 backdrop-blur-2xl px-6 py-6 space-y-4">
+            <a href="#hero" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-indigo-400">Beranda</a>
+            <a href="#skills" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-indigo-400">Skills</a>
+            <a href="#projects" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-indigo-400">Proyek</a>
+            <a href="#contact" class="mobile-nav-link block text-base font-medium text-slate-300 hover:text-indigo-400">Kontak</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs sm:text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Tersedia untuk teman bicara dan rekan bisnis</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Membangun Skill Bersosialisasi<br class="hidden sm:block">
+                            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-300 to-cyan-300">
+                                Modern, Cepat & Terukur
+                            </span>
+                        </h1>
+
+                        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Hello! My Name Is <strong class="text-slate-200">Kevin Diandra</strong>, seorang juru biacara untuk melatih skill bersosialisasi, partner bisnis  dan pengalaman pengguna yang memikat. Berpengalaman mengubah ide kompleks menjadi perencanaan dan hasil yang berkualitas.
+                        </p>
+
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#projects" class="px-7 py-3.5 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:-translate-y-0.5 flex items-center gap-2">
+                                <span>Lihat Portofolio</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#contact" class="px-7 py-3.5 rounded-xl font-semibold text-slate-300 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/80 hover:text-white transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                <span>Hubungi Saya</span>
+                            </a>
+                        </div>
+
+                        <!-- Stats Highlights -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-white">4+ <span class="text-indigo-400 text-lg">Tahun</span></p>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">Pengalaman</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-white">35+ <span class="text-violet-400 text-lg">Proyek</span></p>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">Diselesaikan</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-extrabold text-white">99% <span class="text-cyan-400 text-lg">Puas</span></p>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">Kepuasan Klien</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Box -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 to-violet-600 opacity-30 blur-xl"></div>
+                            
+                            <div class="relative bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6">
+                                <div class="relative mx-auto w-36 h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/50 shadow-inner">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Alex Pratama" class="w-full h-full object-cover">
+                                </div>
+
+                                <div class="text-center">
+                                    <h3 class="text-xl font-bold text-white">Kevin D Firdaus</h3>
+                                    <p class="text-sm text-indigo-400 font-medium mt-1">Business Developer dan Client Relationship Manager</p>
+                                </div>
+
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 border border-slate-700 text-slate-300">TypeScript</span>
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 border border-slate-700 text-slate-300">Node.js</span>
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 border border-slate-700 text-slate-300">Tailwind</span>
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 border border-slate-700 text-slate-300">Nginx</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SKILLS SECTION -->
+        <section id="skills" class="py-20 lg:py-28 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-xs sm:text-sm uppercase tracking-widest text-indigo-400 font-bold">Keahlian & Teknologi</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Kekuatan Teknis & Toolset</p>
+                    <p class="text-slate-400 text-base">Teknologi teruji yang saya gunakan untuk mewujudkan produk digital berkualitas tinggi.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Frontend Card -->
+                    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-7 hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-6">
+                            <i data-lucide="layout" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Frontend Development</h3>
+                        <p class="text-slate-400 text-sm mb-6">Menciptakan antarmuka yang estetis, interaktif, dan responsif.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300 font-medium">HTML5 / JavaScript / TypeScript</span>
+                                <span class="text-indigo-400 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300 font-medium">Tailwind CSS / UI Styling</span>
+                                <span class="text-indigo-400 font-semibold">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Card -->
+                    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-7 hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-violet-600/20 text-violet-400 flex items-center justify-center mb-6">
+                            <i data-lucide="server" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Backend & Database</h3>
+                        <p class="text-slate-400 text-sm mb-6">Membangun REST API yang cepat, aman, dan arsitektur database relasional.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300 font-medium">Node.js / Express</span>
+                                <span class="text-violet-400 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-violet-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300 font-medium">PostgreSQL / MySQL</span>
+                                <span class="text-violet-400 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-violet-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DevOps Card -->
+                    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-7 hover:border-cyan-500/40 transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="terminal" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">DevOps & Server</h3>
+                        <p class="text-slate-400 text-sm mb-6">Deployment handal dengan server Linux, Nginx reverse proxy, dan Git.</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300 font-medium">Linux (Debian/Ubuntu) & Bash</span>
+                                <span class="text-cyan-400 font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-cyan-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300 font-medium">Nginx Web Server</span>
+                                <span class="text-cyan-400 font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-cyan-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PROJECT SHOWCASE SECTION -->
+        <section id="projects" class="py-20 lg:py-28 bg-slate-950/50 relative border-t border-b border-slate-800/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div class="space-y-3">
+                        <h2 class="text-xs sm:text-sm uppercase tracking-widest text-indigo-400 font-bold">Koleksi Karya</h2>
+                        <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Project Showcase</p>
+                        <p class="text-slate-400 text-base max-w-xl">Beberapa proyek unggulan yang telah saya kerjakan.</p>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2" id="filter-container">
+                        <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-indigo-600 text-white shadow-md" data-filter="all">Semua</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-slate-900 text-slate-400 hover:text-white border border-slate-800" data-filter="webapp">Web App</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-slate-900 text-slate-400 hover:text-white border border-slate-800" data-filter="ecommerce">E-Commerce</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all duration-300 flex flex-col" data-category="webapp">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Nova Analytics" class="w-full h-full object-cover">
+                            <span class="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-indigo-600/90 text-white">Web App</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Nova Analytics Platform</h3>
+                                <p class="text-slate-400 text-sm mt-2">Platform visualisasi metrik bisnis realtime dengan pemrosesan data instan.</p>
+                            </div>
+                            <div class="space-y-4 pt-2 border-t border-slate-800/80">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-xs px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300">React</span>
+                                    <span class="text-xs px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300">Tailwind</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <button onclick="openModal('Nova Analytics Platform', 'Platform analitik komprehensif untuk pengolahan data penjualan dan statistik pengguna.', ['React', 'Tailwind', 'Node.js'], 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80')" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                                        Detail Proyek <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all duration-300 flex flex-col" data-category="ecommerce">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Aura Store" class="w-full h-full object-cover">
+                            <span class="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-violet-600/90 text-white">E-Commerce</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Aura Luxe Store</h3>
+                                <p class="text-slate-400 text-sm mt-2">Toko daring modern dengan checkout instan dan payment gateway terintegrasi.</p>
+                            </div>
+                            <div class="space-y-4 pt-2 border-t border-slate-800/80">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-xs px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300">Next.js</span>
+                                    <span class="text-xs px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300">PostgreSQL</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <button onclick="openModal('Aura Luxe Store', 'Aplikasi e-commerce performa tinggi dengan fitur live filter dan sistem inventaris otomatis.', ['Next.js', 'PostgreSQL', 'Tailwind'], 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80')" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                                        Detail Proyek <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT FORM SECTION -->
+        <section id="contact" class="py-20 lg:py-28 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-xs sm:text-sm uppercase tracking-widest text-indigo-400 font-bold">Mari Berdiskusi</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Hubungi Saya</p>
+                    <p class="text-slate-400 text-base">Punya ide proyek menarik atau ingin berkolaborasi? Kirimkan pesan!</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <!-- Left: Info Cards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-white">Email</h4>
+                                <p class="text-slate-400 text-sm mt-1">alex.pratama@example.com</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="message-square" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-white">WhatsApp</h4>
+                                <p class="text-slate-400 text-sm mt-1">+62 812-3456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Nama Lengkap *</label>
+                                        <input type="text" id="name" required placeholder="Nama Anda" class="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white focus:border-indigo-500 focus:outline-none text-sm">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email *</label>
+                                        <input type="email" id="email" required placeholder="email@domain.com" class="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white focus:border-indigo-500 focus:outline-none text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Subjek *</label>
+                                    <input type="text" id="subject" required placeholder="Kebutuhan Proyek Web" class="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white focus:border-indigo-500 focus:outline-none text-sm">
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Pesan *</label>
+                                    <textarea id="message" rows="4" required placeholder="Tuliskan pesan Anda di sini..." class="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white focus:border-indigo-500 focus:outline-none text-sm"></textarea>
+                                </div>
+
+                                <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all duration-300 shadow-lg shadow-indigo-600/25 flex items-center justify-center gap-2">
+                                    <span id="btn-text">Kirim Pesan</span>
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-10 bg-[#080B12] text-center text-xs text-slate-500">
+        <p>Alex Pratama &copy; 2026. Dibuat dengan HTML5, Tailwind CSS, & Vanilla JS di server Nginx.</p>
+    </footer>
+
+    <!-- Interactive Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl">
+            <div class="relative h-64">
+                <img id="modal-img" src="" alt="Preview Proyek" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8 space-y-4">
+                <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+                <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2">Tech Stack:</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+                </div>
+                <div class="pt-4 border-t border-slate-800 flex justify-end">
+                    <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-emerald-500/50 rounded-2xl p-4 shadow-2xl flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+            <h5 class="text-sm font-bold text-white" id="toast-title">Pesan Terkirim!</h5>
+            <p class="text-xs text-slate-300" id="toast-message">Terima kasih, pesan Anda telah berhasil dikirim.</p>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="script.js"></script>
+</body>
+</html>
+EOF
